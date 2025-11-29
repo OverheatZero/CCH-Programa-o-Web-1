@@ -1,0 +1,9 @@
+/* Define varíaveis para serem utilizadas no projeto a partir do escopo raiz */
+:root {
+  --cor-primaria: #2E7D32;
+  --cor-secundaria: #81C784;
+  --cor-detalhes: #795548;
+  --cor-fundo: #f1f8e9;
+  --cor-texto: #333333;
+  --sombra: 4px 8px 12px rgba(51, 51, 51, 0.3);
+}

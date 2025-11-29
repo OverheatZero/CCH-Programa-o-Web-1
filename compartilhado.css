@@ -1,0 +1,48 @@
+@import "./variaveis.css";
+
+/* Importa a fonte Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  color: var(--cor-texto)
+}
+
+html,
+body {
+  background-color: var(--cor-fundo);
+  height: 100%;
+}
+
+.bem-vindo {
+  margin-bottom: 8px;
+}
+
+.corpo {
+  margin: 24px;
+  height: 100%;
+}
+
+#hotbar {
+  width: 100%;
+  min-height: 72px;
+  background-color: var(--cor-primaria);
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+
+  h1 {
+    color: var(--cor-fundo)
+  }
+}
+
+#rodape {
+  width: 100%;
+  min-height: 72px;
+  background-color: var(--cor-detalhes);
+}
