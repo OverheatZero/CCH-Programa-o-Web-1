@@ -36,6 +36,7 @@ body {
   gap: 16px;
 
   h1 {
+    font-size: 28px;
     color: var(--cor-fundo)
   }
 }

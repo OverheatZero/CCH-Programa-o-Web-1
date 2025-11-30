@@ -1,8 +1,13 @@
 const ctxUsuario = document.getElementById("chart-usuarios");
+const ctxBrindes = document.getElementById("chart-brindes");
+const ctxBezerrosComparacao = document.getElementById("chart-bezerros-comparacao");
+const ctxBezerrosDemanda = document.getElementById("chart-bezerros-demanda");
 
 const style = window.getComputedStyle(document.body);
 const corPrimaria = style.getPropertyValue("--cor-primaria");
 const corSecundaria = style.getPropertyValue("--cor-secundaria");
+const corDetalhes = style.getPropertyValue("--cor-detalhes");
+const corDetalhesClara = style.getPropertyValue("--cor-detalhes-claro");
 const corTexto = style.getPropertyValue("--cor-texto");
 
 function hexParaRGBA(hex, alpha) {
@@ -32,6 +37,8 @@ function criarOptions(nomeGrafico) {
         padding: 0,
         text: nomeGrafico,
         font: {
+          family: "'Montserrat', 'sans-serif'",
+          color: corTexto,
           size: 20
         }
       },
@@ -41,7 +48,12 @@ function criarOptions(nomeGrafico) {
         align: "start",
         labels: {
           usePointStyle: true,
-          pointStyle: "circle"
+          pointStyle: "circle",
+          font: {
+            family: "'Montserrat', 'sans-serif'",
+            color: corTexto,
+            size: 12
+          }
         },
         display: true
       },
@@ -52,7 +64,12 @@ function criarOptions(nomeGrafico) {
         backgroundColor: "#ffffff",
         titleColor: "#000000",
         bodyColor: "#000000",
-        position: "nearest"
+        position: "nearest",
+        font: {
+          family: "'Montserrat', 'sans-serif'",
+          color: corTexto,
+          size: 12
+        }
       },
     },
     maintainAspectRatio: false,
@@ -78,37 +95,90 @@ function criarOptions(nomeGrafico) {
 }
 
 
+const meses = [
+  "Jan.",
+  "Fev.",
+  "Mar.",
+  "Abr.",
+  "Mai.",
+  "Jun.",
+  "Jul.",
+  "Ago.",
+  "Set.",
+  "Out.",
+  "Nov.",
+  "Dez.",
+];
+
+function gerarArrayNumerosAletorios(obj) {
+
+  const array = [];
+  for (let i = 0; i < obj.qtdNumeros; i++) {
+    let numero = Math.random() * (obj.max - obj.min) + obj.min;
+    numero = Math.floor(numero);
+    array.push(numero);
+  }
+
+  return array;
+}
+
 
 const chartUsuario = new Chart(ctxUsuario, {
-  type: "line",
+  type: "bar",
   data: {
-    labels: [
-      "Janeiro",
-      "Fevereiro",
-      "Março",
-      "Abril",
-      "Maio",
-      "Junho",
-      "Julho",
-      "Agosto",
-      "Setembro",
-      "Outubro",
-      "Novembro",
-      "Dezembro"
-    ],
+    labels: meses,
     datasets: [{
       label: 'Novos usuários',
-      data: [12, 9, 23, 4, 10, 14, 6, 21, 22, 10, 11, 9],
+      data: gerarArrayNumerosAletorios({ qtdNumeros: 12, min: 10, max: 20 }),
       fill: true,
-      tension: 0.5,
-      borderColor: corSecundaria,
-      backgroundColor: [hexParaRGBA(corSecundaria, 0.5)],
+      borderRadius: 16,
+      backgroundColor: [corPrimaria, corSecundaria],
     }],
   },
-  responsive: false,
+  responsive: true,
   options: criarOptions("Novos usuários por mês"),
 });
 
-console.log(chartUsuario);
+const chartBrindes = new Chart(ctxBrindes, {
+  type: "bar",
+  data: {
+    labels: meses,
+    datasets: [{
+      label: "Brindes entregues",
+      data: gerarArrayNumerosAletorios({ qtdNumeros: 12, min: 100, max: 200 }),
+      fill: true,
+      borderRadius: 16,
+      backgroundColor: [corDetalhes, corDetalhesClara],
+    }],
+  },
+  responsive: true,
+  options: criarOptions("Brindes entregues por mês"),
+});
+
+const chartComparacao = new Chart(ctxBezerrosComparacao, {
+
+  type: 'line',
+  data: {
+    labels: meses,
+    datasets: [
+      {
+        label: "Bezerros doados",
+        data: gerarArrayNumerosAletorios({ qtdNumeros: 12, min: 137, max: 196 }),
+        fill: false,
+        tension: 0.3,
+        backgroundColor: corPrimaria,
+        borderColor: corPrimaria
+      }, {
+        label: "Bezerros em demanda",
+        data: gerarArrayNumerosAletorios({ qtdNumeros: 12, min: 125, max: 196 }),
+        fill: false,
+        tension: 0.5,
+        backgroundColor: corDetalhes,
+        borderColor: corDetalhes,
+      }],
+  },
+  responsive: false,
+  options: criarOptions("Bezerros doados X Bezerros em demanda por mês")
+});
 
 
