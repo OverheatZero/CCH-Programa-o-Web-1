@@ -180,5 +180,3 @@ const chartComparacao = new Chart(ctxBezerrosComparacao, {
   responsive: false,
   options: criarOptions("Bezerros doados X Bezerros em demanda por mês")
 });
-
-
