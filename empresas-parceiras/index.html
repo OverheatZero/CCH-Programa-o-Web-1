@@ -7,18 +7,38 @@
   <div id="navbar">
     <img height="72" src="../logo.png" alt="logo"></img>
     <h1>AgroBridge - Empresa</h1>
-    <div id="esquerdaHb">
-      <button id="Menu">Menu</button>
-      <button id="sobreNos">Sobre Nós</button>
-      <button id="contato"> Contato</button>
-    </div>
   </div>
 
-  <div id="container">
-    <div id="prizeBox">
-      <p class="upText">Brindes Disponíveis:</p>
-      <div id="slide">
-        <div class="prize"> </div>
+  <div class="corpo">
+
+    <div id="menu-lateral">
+      <a href="#">Início</a>
+      <a href="./brindes/index.html">Brindes</a>
+      <a href="./sobre/index.html">Sobre Nós</a>
+      <a>Contato</a>
+    </div>
+
+
+    <div class="conteudo">
+      <div id="formContainer">
+        <h2 style="margin: 25px 25px 0;">Cadastro de Bezerro</h2>
+
+        <div class="form-group">
+          <label>Idade (meses)</label>
+          <input type="number" placeholder="Ex: 8">
+        </div>
+
+        <div class="form-group">
+          <label>Peso (kg)</label>
+          <input type="number" placeholder="Ex: 120">
+        </div>
+
+        <div class="form-group">
+          <label>Raça</label>
+          <input type="text" placeholder="Ex: Nelore">
+        </div>
+
+        <button id="btnCadastro">Cadastrar</button>
       </div>
     </div>
   </div>

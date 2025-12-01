@@ -1,5 +1,5 @@
-@import "../variaveis.css";
-@import "../compartilhado.css";
+@import "../../variaveis.css";
+@import "../../compartilhado.css";
 
 button {
   display: flex;
@@ -71,38 +71,15 @@ input {
   flex: 0 0 auto;
 }
 
+.top-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
 .upText {
-  position: sticky;
   margin: 25px;
-}
-
-#formContainer {
-  box-shadow: var(--sombra);
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  top: 20px;
-  margin: 20px auto;
-  width: 90%;
-  gap: 16px;
-}
-
-#formContainer button {
-  width: calc(100% - 50px);
-  background-color: var(--cor-primaria);
-  border-radius: 8px;
-  padding: 10px;
-  display: block;
-  color: #EEF7FF;
-  margin: 0 25px 25px;
-}
-
-.form-group {
-  width: calc(100% - 50px);
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin: 0 25px 25px;
 }
 
 .conteudo {
@@ -112,4 +89,11 @@ input {
   padding: 24px;
   overflow-y: auto;
   box-sizing: border-box;
+}
+
+.corpo {
+  flex-direction: row;
+  display: flex;
+  height: 100%;
+  overflow: hidden;
 }
