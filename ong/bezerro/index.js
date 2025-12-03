@@ -31,8 +31,8 @@ function adicionarBezerros() {
                   </button>
 
                   <dialog id="dialog-${idBezerro}" class="menu-dropdown">
-                    <button onclick="editarUsuario(${idBezerro})">Editar</button>
-                    <button class="deletar" onclick="deletarUsuario(${idBezerro})">Excluir</button>
+                    <button onclick="editarBezerro(${idBezerro})">Editar</button>
+                    <button class="deletar" onclick="deletarBezerro(${idBezerro})">Excluir</button>
                   </dialog>
               </td>
             </tr>
@@ -79,14 +79,14 @@ document.addEventListener('click', function(event) {
   }
 });
 
-function editarUsuario(nome) {
-  alert(`Editando ${nome}`);
+function editarBezerro(id) {
+  alert(`Editando ${id}`);
   if (dialogAberto) {
     dialogAberto.close();
   }
 }
 
-function deletarUsuario(nome) {
+function deletarBezerro(id) {
   if (confirm(`Deseja excluir o bezerro ${id}?`)) {
     alert("Bezerro excluído com sucesso");
   }
