@@ -1,0 +1,145 @@
+@import "../variaveis.css";
+@import "../compartilhado.css";
+
+button {
+  display: flex;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  background-color: #EEF7FF;
+  border-style: none;
+}
+
+input {
+  height: 32px;
+  border-radius: 8px;
+  padding: 4px;
+}
+
+#esquerdaHb {
+  position: relative;
+  display: flex;
+  height: 50px;
+  width: auto;
+  align-items: left;
+}
+
+#siteTitle {
+  position: relative;
+  display: flex;
+  height: 50px;
+  width: auto;
+  margin-left: 5%;
+}
+
+#container {
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 20px;
+  margin: 20px auto;
+  height: 80%;
+  width: 90%;
+}
+
+#prizeBox {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  height: 50%;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+#slide {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.prize {
+  display: inline-block;
+  height: 250px;
+  width: 250px;
+  background-color: gray;
+  margin: 25px;
+
+  flex: 0 0 auto;
+}
+
+.upText {
+  position: sticky;
+  margin: 25px;
+}
+
+#formContainer {
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 20px;
+  margin: 20px auto;
+  width: 90%;
+  gap: 16px;
+}
+
+#formContainer button {
+  width: calc(100% - 50px);
+  background-color: var(--cor-primaria);
+  border-radius: 8px;
+  padding: 10px;
+  display: block;
+  color: #EEF7FF;
+  margin: 0 25px 25px;
+}
+
+.form-group {
+  width: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0 25px 25px;
+}
+
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 24px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+.gridCaixas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  width: 100%;
+  overflow: scroll;
+}
+
+.caixa {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: var(--cor-fundo);
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--cor-secundaria);
+  padding: 8px;
+  box-shadow: var(--sombra);
+  box-sizing: border-box;
+  min-height: 300px;
+  min-width: 0px;
+}
+
+.numero{
+  margin-top: 50px;
+  margin-left: 10px;
+  font-size: xx-large;
+}
