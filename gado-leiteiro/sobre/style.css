@@ -1,0 +1,17 @@
+@import "../../compartilhado.css";
+@import "../../variaveis.css";
+
+p{
+    font-size: xx-large;
+    font-family: inherit;
+}
+
+.bem-vindo{
+    font-size: xx-large;
+}
+
+.conteudo{
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
