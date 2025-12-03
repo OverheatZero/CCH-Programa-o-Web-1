@@ -70,6 +70,7 @@ input {
 
 .upText {
   margin: 25px;
+  font-weight: bold;
 }
 
 .conteudo {
@@ -98,13 +99,21 @@ input {
 .card {
     background: white;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--cor-secundaria);
     text-align: center;
     padding: 12px;
+    transition: all 0.3s;
+}
+
+.card:hover {
+  transform:  scale(1.1);
+  z-index: 2;
+  box-shadow: var(--sombra);
+  transform-origin: bottom;
 }
 
 .card img {
-    width: 100%;
+    width: 200px;
     height: 140px;
     object-fit: cover;
     border-radius: 6px;
@@ -113,6 +122,8 @@ input {
 .card .title {
     font-size: 18px;
     margin-top: 10px;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
 .card .price {
