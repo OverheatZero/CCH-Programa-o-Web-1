@@ -2,7 +2,12 @@ let brindes = JSON.parse(localStorage.getItem("brindes")) || [];
 
 const grid = document.getElementById("grid");
 
-console.log(brindes)
+brindes.unshift(
+    { nome: "Ração de Gado 5kg", custo: 50, quantidade: 15, url: "../imagens-default/racao.png" },
+    { nome: "Ração de Gado 20kg", custo: 200, quantidade: 10, url: "../imagens-default/racao.png" },
+    { nome: "Ração de Gado 50kg", custo: 500, quantidade: 5, url: "../imagens-default/racao.png" },
+);
+
 
 function formatarCusto(c) {
     if (c == 0) return "GRÁTIS";
@@ -24,12 +29,30 @@ function carregarGrid() {
         nome.className = "title";
         nome.textContent = b.nome;
 
+        const quantidade = document.createElement("div");
+        quantidade.className = "quantidade";
+        quantidade.textContent = "Restante: " + b.quantidade;
+
         const preco = document.createElement("div");
         preco.className = "price";
         preco.textContent = formatarCusto(b.custo);
 
+        card.addEventListener("click", () => {
+            if (pontos >= b.custo) {
+                pontos -= b.custo;
+                b.quantidade--;
+
+                elPontuacao.textContent = `Pontuação: ${pontos}`;
+                quantidade.textContent = "Restante: " + b.quantidade;
+                alert("Brinde resgatado!");
+            } else {
+                alert("Não há pontos necessários para esse brinde!");
+            }
+        });
+
         card.appendChild(img);
         card.appendChild(nome);
+        card.appendChild(quantidade);
         card.appendChild(preco);
 
         grid.appendChild(card);
@@ -37,3 +60,7 @@ function carregarGrid() {
 }
 
 carregarGrid();
+
+let pontos = 250;
+const elPontuacao = document.getElementById("pontuacao");
+elPontuacao.textContent = `Pontuação: ${pontos}`;

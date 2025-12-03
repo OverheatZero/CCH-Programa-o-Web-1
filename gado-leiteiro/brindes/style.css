@@ -70,6 +70,7 @@ input {
 
 .upText {
   margin: 25px;
+  font-weight: bold;
 }
 
 .conteudo {
@@ -113,6 +114,8 @@ input {
 .card .title {
     font-size: 18px;
     margin-top: 10px;
+    margin-bottom: 8px;
+    font-weight: bold;
 }
 
 .card .price {
