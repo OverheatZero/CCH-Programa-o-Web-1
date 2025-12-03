@@ -1,7 +1,7 @@
 const ctxUsuario = document.getElementById("chart-usuarios");
 const ctxBrindes = document.getElementById("chart-brindes");
 const ctxBezerrosComparacao = document.getElementById("chart-bezerros-comparacao");
-const ctxBezerrosDemanda = document.getElementById("chart-bezerros-demanda");
+const ctxTipoUsuario = document.getElementById("chart-tipo-usuario");
 
 const style = window.getComputedStyle(document.body);
 const corPrimaria = style.getPropertyValue("--cor-primaria");
@@ -179,4 +179,18 @@ const chartComparacao = new Chart(ctxBezerrosComparacao, {
   },
   responsive: false,
   options: criarOptions("Bezerros doados X Bezerros em demanda por mês")
+});
+
+const chartTipoUsuario = new Chart(ctxTipoUsuario, {
+  type: 'doughnut',
+  data: {
+    labels: ["Corte", "Leiteiro"],
+    datasets: [{
+        data: [100, 100],
+      fill: true,
+      backgroundColor: [corPrimaria, corSecundaria],
+    }],
+  },
+  responsive: true,
+  options: criarOptions("Usuários por Tipo")
 });
