@@ -113,15 +113,18 @@ tr {
     margin-top: 4px;
   }
 
-@media (max-width: 600px) {
+@media(max-width: 768px) {
 
-  .melhores {
-    flex-direction: column;
-    gap: 20px;
-    height: auto;
+  .terceiroLugar {
+    height: 40%;
+    width: 80%;
   }
-
-  .podio {
+  .primeiroLugar {
+    height: 70%;
+    width: 80%;
+  }
+  .segundoLugar {
+    height: 50%;
     width: 80%;
   }
 
@@ -129,17 +132,30 @@ tr {
     margin: 10px;
   }
 
-  .caixa {
-    min-height: 250px;
-    padding: 12px;
+  .podio {
+    width: 30%;
+    height: 100%;
+
   }
 
   p {
     font-size: large;
+    /* Reduz tamanho da fonte */
   }
 
   table {
-    font-size: 14px;
+    width: 100%;
+    /* Largura total */
+    margin: 10px;
+    /* Reduz margem */
+    overflow-x: auto;
+    /* Permite rolagem horizontal se necessário */
+  }
+
+  th,
+  td {
+    padding: 6px;
+    /* Reduz padding */
   }
 }
 
