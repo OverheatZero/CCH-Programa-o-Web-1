@@ -5,6 +5,7 @@
 
 <body>
     <div id="navbar">
+        <img id="menu" title="Abrir/Fechar menu" src="../menu/menu.png" height="36px" alt="Menu"></img>
         <img height="72" src="../../logo.png" alt="logo"></img>
         <h1>AgroBridge - Empresa</h1>
     </div>
@@ -13,23 +14,39 @@
 
         <div id="menu-lateral">
             <a href="../index.html">Início</a>
-            <a href="#">Brindes</a>
-            <a href="../sobre/index.html">Sobre Nós</a>
-            <a>Contato</a>
+            <a href="#">Cadastrar Brindes</a>
+            <a href="../sobre/index.html">Sobre</a>
         </div>
-
 
         <div class="conteudo">
-            <div id="container">
-                <div id="prizeBox">
-                    <div class="top-info">
-                        <p class="upText">Brindes Disponíveis:</p>
-                        <p class="upText">Pontuação: 250</p>
-                    </div>
-                    <div id="slide">
-                        <div class="prize"></div>
-                    </div>
+            <h3>Cadastrar brinde</h3>
+            <br>
+            <div id="formContainer">
+                <div class="form-group">
+                    <label>Nome do brinde</label>
+                    <input type="text" placeholder="Ex: Trator">
                 </div>
+                <div class="form-group">
+                    <label>Custo do brinde (pontos)</label>
+                    <input type="number" placeholder="Ex: 1200">
+                </div>
+                <div class="form-group">
+                    <label>Imagem do produto (opcional)</label>
+                    <input type="text" placeholder="Ex: https://www.deere.com.br/assets/images/trator.png ">
+                </div>
+
+                <button id="btnCadastro">Cadastrar</button>
+            </div>
+            <div id="dropdown">
+                <div id="dropdown-header">
+                    <span>Brindes cadastrados</span>
+                    <span id="dropdown-icon">⋁</span>
+                </div>
+                <ul id="dropdown-list"></ul>
             </div>
         </div>
+    </div>
+
+    <script src="../menu/menu.js"></script>
+    <script src="./index.js"></script>
 </body>
