@@ -105,7 +105,7 @@ input {
 }
 
 .card img {
-    width: 100%;
+    width: 200px;
     height: 140px;
     object-fit: cover;
     border-radius: 6px;
