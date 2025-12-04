@@ -1,10 +1,17 @@
 let dialogAberto = null;
+let brindes = JSON.parse(localStorage.getItem("brindes")) || [];
 
-function adicionarUsuarios() {
+function inicializarLista() {
 
-  const nome = "Lorem Ipsum";
-  const leiteiro = "Criador de gado leiteiro";
-  const corte = "Criador de gado de corte";
+  if (brindes.length <= 0) {
+    brindes.unshift(
+      { nome: "Ração de Gado 5kg", custo: 50, quantidade: 15, url: "../imagens-default/racao.png" },
+      { nome: "Ração de Gado 20kg", custo: 200, quantidade: 10, url: "../imagens-default/racao.png" },
+      { nome: "Ração de Gado 50kg", custo: 500, quantidade: 5, url: "../imagens-default/racao.png" },
+    );
+  }
+
+  document.getElementsByClassName("")
 
   const corpoTabela = document.getElementById("body-usuario");
 
@@ -14,22 +21,24 @@ function adicionarUsuarios() {
 
   const linhas = [];
 
-  for (let i = 0; i < 200; i++) {
+  for (let i = 0; i < brindes.length; i++) {
 
-    const idUsuario = i + 1;
+    const brinde = brindes[i];
+    const idBrinde = i + 1;
     const html = `
             <tr>
-              <td>${idUsuario}</td>
-              <td>${nome}</td>
-              <td>${i % 2 == 0 ? leiteiro : corte}</td>
+              <td>${idBrinde}</td>
+              <td>${brinde.nome}</td>
+              <td>${brinde.quantidade}</td>
+              <td>${brinde.custo}</td>
               <td class="td-opcoes">
-                  <button class="btn-opcoes" title="Abrir menu de opções" onclick="alternarDialog(event, 'dialog-${idUsuario}')">
+                  <button class="btn-opcoes" title="Abrir menu de opções" onclick="alternarDialog(event, 'dialog-${idBrinde}')">
                     <img src="./opcoes.png" alt"Opções" height="24px"></img>
                   </button>
 
-                  <dialog id="dialog-${idUsuario}" class="menu-dropdown">
-                    <button onclick="editarUsuario('${nome}')">Editar</button>
-                    <button class="deletar" onclick="deletarUsuario('${nome}')">Excluir</button>
+                  <dialog id="dialog-${idBrinde}" class="menu-dropdown">
+                    <button onclick="editarBrinde('${brinde.nome}')">Editar</button>
+                    <button class="deletar" onclick="deletarBrinde('${brinde.nome}')">Excluir</button>
                   </dialog>
               </td>
             </tr>
@@ -39,6 +48,7 @@ function adicionarUsuarios() {
   }
 
   corpoTabela.innerHTML = linhas.join("");
+  brindes
 }
 
 function alternarDialog(event, idDialog) {
@@ -76,15 +86,15 @@ document.addEventListener('click', function(event) {
   }
 });
 
-function editarUsuario(nome) {
-  alert(`Editando ${nome}`);
+function editarBrinde() {
   if (dialogAberto) {
     dialogAberto.close();
   }
+  redirecionarCadastro()
 }
 
-function deletarUsuario(nome) {
-  if (confirm(`Deseja excluir o usuário ${nome}?`)) {
+function deletarBrinde(nome) {
+  if (confirm(`Deseja excluir o brinde ${nome}?`)) {
     alert("Usuário excluído com sucesso");
   }
 
@@ -93,6 +103,13 @@ function deletarUsuario(nome) {
   }
 }
 
+function redirecionarCadastro() {
 
-adicionarUsuarios();
+  let path = window.location.pathname
+  path = path.replace("index.html", "");
+  path += "cadastro/index.html";
+  window.location.pathname = path;
+}
+
+inicializarLista();
 

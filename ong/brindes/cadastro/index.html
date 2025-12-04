@@ -1,0 +1,52 @@
+<head>
+  <title>AgroBridge</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div id="navbar">
+    <img id="menu" title="Abrir/Fechar menu" src="../../../menu/menu.png" height="36px" alt="Menu"></img>
+    <img height="72" src="../../../logo.png" alt="logo"></img>
+    <h1>AgroBridge - ONG</h1>
+  </div>
+
+  <div class="corpo">
+
+    <div id="menu-lateral">
+      <a href="../../index.html">Início</a>
+      <a href="../../usuario/index.html">Usuários</a>
+      <a href="../index.html">Brindes</a>
+      <a href="../../empresa/index.html">Empresa</a>
+      <a href="../../bezerro/index.html">Bezerros</a>
+      <a href="../../sobre/index.html">Sobre</a>
+    </div>
+
+    <div class="conteudo">
+      <h3>Cadastrar brinde</h3>
+      <br>
+      <div id="formContainer">
+        <div class="form-group">
+          <label>Nome do brinde</label>
+          <input type="text" placeholder="Ex: Trator">
+        </div>
+        <div class="form-group">
+          <label>Custo do brinde (pontos)</label>
+          <input type="number" placeholder="Ex: 1200">
+        </div>
+        <div class="form-group">
+          <label>Quantidade de itens</label>
+          <input type="number" placeholder="Ex: 1200">
+        </div>
+        <div class="form-group">
+          <label>Imagem do produto (opcional)</label>
+          <input type="text" placeholder="Ex: https://www.deere.com.br/assets/images/trator.png ">
+        </div>
+
+        <button id="btnCadastro">Cadastrar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../../menu/menu.js"></script>
+  <script src="./index.js"></script>
+</body>
