@@ -1,30 +1,30 @@
 const btnCadastro = document.getElementById("btnCadastro");
-
 const inputs = document.querySelectorAll("#formContainer input");
 
-let brindes = JSON.parse(localStorage.getItem("brindes"));
-
 btnCadastro.addEventListener("click", () => {
-    const nomeBrinde = inputs[0].value.trim();
-    const custo = inputs[1].value.trim();
-    const quantidade = inputs[2].value.trim();
-    const url = inputs[3].value.trim();
 
-    if (!nomeBrinde || !quantidade || !custo) {
-        alert("Preencha todos os campos!");
-        return;
-    }
+  let brindes = JSON.parse(localStorage.getItem("brindes")) || [];
+  const nomeBrinde = inputs[0].value.trim();
+  const custo = inputs[1].value.trim();
+  const quantidade = inputs[2].value.trim();
+  const url = inputs[3].value.trim();
 
-    brindes.push({
-        nome: nomeBrinde,
-        custo: custo,
-        quantidade: quantidade,
-        url: url
-    });
+  if (!nomeBrinde || !quantidade || !custo) {
+    alert("Preencha todos os campos!");
+    return;
+  }
 
-    localStorage.setItem("brindes", JSON.stringify(brindes));
+  brindes.push({
+    nome: nomeBrinde,
+    custo: custo,
+    quantidade: quantidade,
+    url: url
+  });
 
-    alert("Brinde cadastrado com sucesso!");
+  localStorage.setItem("brindes", JSON.stringify(brindes));
 
-    inputs.forEach(i => i.value = "");
+  alert("Brinde cadastrado com sucesso!");
+
+  inputs.forEach(i => i.value = "");
+  window.location.href = window.location.href.replace("/cadastro", "");
 });
