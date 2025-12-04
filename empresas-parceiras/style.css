@@ -44,3 +44,38 @@ input:focus {
   display: flex;
   flex-direction: column;
 }
+
+.gridCaixas {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  width: 100%;
+  overflow: scroll;
+}
+
+.caixa {
+  position: relative;
+  background-color: var(--cor-fundo);
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--cor-secundaria);
+  padding: 8px;
+  box-shadow: var(--sombra);
+  box-sizing: border-box;
+  min-height: 300px;
+  min-width: 0px;
+}
+
+.numero{
+  margin-top: 50px;
+  margin-left: 10px;
+  font-size: xx-large;
+}
+
+@media(min-width: 900px) {
+
+  .gridCaixas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
